@@ -59,7 +59,7 @@ const Index = () => {
       {/* Services Overview */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in">
             <Badge variant="secondary" className="mb-4">Our Expertise</Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Specialized Legal Services for Technology Companies
@@ -70,16 +70,20 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="text-center shadow-card hover:shadow-elegant transition-shadow">
+              <Card 
+                key={index} 
+                className="text-center shadow-card hover:shadow-elegant transition-all duration-500 group hover:-translate-y-2 animate-slide-up" 
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <service.icon className="h-8 w-8 text-accent" />
+                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                    <service.icon className="h-8 w-8 text-accent group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="text-xl font-semibold text-primary mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
-                  <Button variant="outline" size="sm">
+                  <h3 className="text-xl font-semibold text-primary mb-4 group-hover:text-accent transition-colors">{service.title}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
+                  <Button variant="outline" size="sm" className="group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent transition-all">
                     Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>
               </Card>
@@ -121,20 +125,20 @@ const Index = () => {
               </Button>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="text-center p-6 bg-muted rounded-lg">
-                <div className="text-4xl font-bold text-primary mb-2">95%</div>
+              <div className="text-center p-6 bg-muted rounded-lg shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 animate-scale-in" style={{ animationDelay: '100ms' }}>
+                <div className="text-4xl font-bold text-primary mb-2 animate-float">95%</div>
                 <div className="text-muted-foreground">Success Rate</div>
               </div>
-              <div className="text-center p-6 bg-muted rounded-lg">
-                <div className="text-4xl font-bold text-primary mb-2">24/7</div>
+              <div className="text-center p-6 bg-muted rounded-lg shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 animate-scale-in" style={{ animationDelay: '200ms' }}>
+                <div className="text-4xl font-bold text-primary mb-2 animate-float" style={{ animationDelay: '1s' }}>24/7</div>
                 <div className="text-muted-foreground">Support</div>
               </div>
-              <div className="text-center p-6 bg-muted rounded-lg">
-                <div className="text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-center p-6 bg-muted rounded-lg shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 animate-scale-in" style={{ animationDelay: '300ms' }}>
+                <div className="text-4xl font-bold text-primary mb-2 animate-float" style={{ animationDelay: '2s' }}>50+</div>
                 <div className="text-muted-foreground">Expert Attorneys</div>
               </div>
-              <div className="text-center p-6 bg-muted rounded-lg">
-                <div className="text-4xl font-bold text-primary mb-2">Global</div>
+              <div className="text-center p-6 bg-muted rounded-lg shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 animate-scale-in" style={{ animationDelay: '400ms' }}>
+                <div className="text-4xl font-bold text-primary mb-2 animate-float" style={{ animationDelay: '3s' }}>Global</div>
                 <div className="text-muted-foreground">Reach</div>
               </div>
             </div>
@@ -145,7 +149,7 @@ const Index = () => {
       {/* Testimonials */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in">
             <Badge variant="secondary" className="mb-4">Client Testimonials</Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               What Our Clients Say
@@ -156,17 +160,21 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="shadow-card">
+              <Card 
+                key={index} 
+                className="shadow-card hover:shadow-elegant transition-all duration-500 group hover:-translate-y-2 animate-slide-up" 
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
                 <CardContent className="p-8">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-accent fill-current" />
+                      <Star key={i} className="h-5 w-5 text-accent fill-current group-hover:scale-110 transition-transform" style={{ transitionDelay: `${i * 50}ms` }} />
                     ))}
                   </div>
-                  <Quote className="h-8 w-8 text-accent/20 mb-4" />
-                  <p className="text-muted-foreground mb-6 italic">"{testimonial.quote}"</p>
-                  <div>
-                    <div className="font-semibold text-primary">{testimonial.author}</div>
+                  <Quote className="h-8 w-8 text-accent/20 mb-4 group-hover:text-accent/40 transition-colors" />
+                  <p className="text-muted-foreground mb-6 italic leading-relaxed">"{testimonial.quote}"</p>
+                  <div className="border-t border-border pt-4">
+                    <div className="font-semibold text-primary group-hover:text-accent transition-colors">{testimonial.author}</div>
                     <div className="text-sm text-muted-foreground">{testimonial.role}</div>
                   </div>
                 </CardContent>

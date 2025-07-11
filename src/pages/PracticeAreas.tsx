@@ -22,6 +22,7 @@ export const PracticeAreas = () => {
       icon: Shield,
       title: 'Cybersecurity & Data Privacy',
       description: 'Comprehensive legal protection for data breaches, privacy compliance (GDPR, CCPA), and cybersecurity incidents.',
+      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop',
       services: [
         'Data breach response and notification',
         'Privacy policy development',
@@ -33,6 +34,7 @@ export const PracticeAreas = () => {
       icon: FileText,
       title: 'Intellectual Property',
       description: 'Protect your innovations with strategic IP portfolio management, patent prosecution, and enforcement.',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop',
       services: [
         'Patent application and prosecution',
         'Trademark registration and protection',
@@ -44,6 +46,7 @@ export const PracticeAreas = () => {
       icon: Briefcase,
       title: 'Technology Transactions',
       description: 'Navigate complex technology deals, licensing agreements, and strategic partnerships.',
+      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop',
       services: [
         'Software licensing agreements',
         'Technology transfer deals',
@@ -55,6 +58,7 @@ export const PracticeAreas = () => {
       icon: Building,
       title: 'Startup & Venture Law',
       description: 'From incorporation to IPO, we guide emerging companies through every stage of growth.',
+      image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=300&fit=crop',
       services: [
         'Entity formation and governance',
         'Fundraising and venture capital',
@@ -66,6 +70,7 @@ export const PracticeAreas = () => {
       icon: Cloud,
       title: 'Cloud & SaaS Law',
       description: 'Legal framework for cloud computing, SaaS agreements, and digital service platforms.',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop',
       services: [
         'Cloud service agreements',
         'SaaS terms and conditions',
@@ -77,6 +82,7 @@ export const PracticeAreas = () => {
       icon: Smartphone,
       title: 'Digital Commerce',
       description: 'E-commerce law, digital payments, platform governance, and online marketplace regulations.',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop',
       services: [
         'E-commerce platform development',
         'Digital payment compliance',
@@ -88,6 +94,7 @@ export const PracticeAreas = () => {
       icon: Cpu,
       title: 'AI & Machine Learning',
       description: 'Navigate the emerging legal landscape of artificial intelligence and automated decision-making.',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
       services: [
         'AI ethics and compliance',
         'Algorithmic bias assessment',
@@ -99,6 +106,7 @@ export const PracticeAreas = () => {
       icon: Database,
       title: 'Data Governance',
       description: 'Establish robust data governance frameworks and ensure regulatory compliance across jurisdictions.',
+      image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=300&fit=crop',
       services: [
         'Data governance policies',
         'Cross-border data transfers',
@@ -110,6 +118,7 @@ export const PracticeAreas = () => {
       icon: Globe,
       title: 'International Tech Law',
       description: 'Cross-border technology operations, international data flows, and multi-jurisdictional compliance.',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop',
       services: [
         'International data transfer agreements',
         'Multi-jurisdictional compliance',
@@ -153,24 +162,48 @@ export const PracticeAreas = () => {
       <section className="container mx-auto px-4 mb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {practiceAreas.map((area, index) => (
-            <Card key={index} className="shadow-card hover:shadow-elegant transition-all duration-300 group">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                  <area.icon className="h-8 w-8 text-accent" />
+            <Card key={index} className="overflow-hidden shadow-card hover:shadow-elegant transition-all duration-500 group hover:-translate-y-2">
+              {/* Image Header */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={area.image}
+                  alt={area.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="w-12 h-12 bg-accent/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                    <area.icon className="h-6 w-6 text-accent-foreground" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-4">{area.title}</h3>
+              </div>
+              
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-primary mb-4 group-hover:text-accent transition-colors">
+                  {area.title}
+                </h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">{area.description}</p>
-                <div className="space-y-2">
-                  <h4 className="font-medium text-primary text-sm">Key Services:</h4>
-                  <ul className="space-y-1">
+                <div className="space-y-3">
+                  <h4 className="font-medium text-primary text-sm flex items-center">
+                    <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
+                    Key Services:
+                  </h4>
+                  <ul className="space-y-2">
                     {area.services.map((service, serviceIndex) => (
-                      <li key={serviceIndex} className="text-sm text-muted-foreground flex items-start">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                      <li key={serviceIndex} className="text-sm text-muted-foreground flex items-start group-hover:text-foreground transition-colors">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         {service}
                       </li>
                     ))}
                   </ul>
                 </div>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="mt-6 w-full group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent transition-all"
+                >
+                  Learn More
+                </Button>
               </CardContent>
             </Card>
           ))}
